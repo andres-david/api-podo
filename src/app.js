@@ -5,7 +5,9 @@ const errorHandling = require("./error/errorHandling");
 
 const app = express();
 
-const PORT = process.env.PORT || 3000
+// const PORT = process.env.PORT || 3000
+app.set( "port", process.env.PORT || 3000 );
+
 
 app.use( cors() );
 app.use( express.urlencoded( {extended: false} ) );
@@ -19,9 +21,9 @@ app.use( function( req, res, next ){
 
 app.use( errorHandling );
 
-app.listen(PORT, () => {
-    console.log(`Tu API es http://localhost:${PORT}`)
-})
+// app.listen(PORT, () => {
+//     console.log(`Server listen on port:${PORT}`)
+// })
 
 
 module.exports = app;
